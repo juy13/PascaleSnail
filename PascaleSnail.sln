@@ -4,8 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PascaleSnail", "PascaleSnail\PascaleSnail.vcxproj", "{D870F4C7-090C-4765-9FDF-90EEA9EF8E1F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FC2F25CA-A405-4D38-A6A3-A4AD7D899F70} = {FC2F25CA-A405-4D38-A6A3-A4AD7D899F70}
+	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PascaleSnaleClass", "PpascaleSnaleClass\PpascaleSnaleClass.vcxproj", "{A5CAE57F-BE1E-4ABE-9003-0AFD4CE8A35E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PascaleSnailClass", "PascaleSnailClass\PascaleSnailClass.vcxproj", "{FC2F25CA-A405-4D38-A6A3-A4AD7D899F70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,14 +26,14 @@ Global
 		{D870F4C7-090C-4765-9FDF-90EEA9EF8E1F}.Release|x64.Build.0 = Release|x64
 		{D870F4C7-090C-4765-9FDF-90EEA9EF8E1F}.Release|x86.ActiveCfg = Release|Win32
 		{D870F4C7-090C-4765-9FDF-90EEA9EF8E1F}.Release|x86.Build.0 = Release|Win32
-		{A5CAE57F-BE1E-4ABE-9003-0AFD4CE8A35E}.Debug|x64.ActiveCfg = Debug|x64
-		{A5CAE57F-BE1E-4ABE-9003-0AFD4CE8A35E}.Debug|x64.Build.0 = Debug|x64
-		{A5CAE57F-BE1E-4ABE-9003-0AFD4CE8A35E}.Debug|x86.ActiveCfg = Debug|Win32
-		{A5CAE57F-BE1E-4ABE-9003-0AFD4CE8A35E}.Debug|x86.Build.0 = Debug|Win32
-		{A5CAE57F-BE1E-4ABE-9003-0AFD4CE8A35E}.Release|x64.ActiveCfg = Release|x64
-		{A5CAE57F-BE1E-4ABE-9003-0AFD4CE8A35E}.Release|x64.Build.0 = Release|x64
-		{A5CAE57F-BE1E-4ABE-9003-0AFD4CE8A35E}.Release|x86.ActiveCfg = Release|Win32
-		{A5CAE57F-BE1E-4ABE-9003-0AFD4CE8A35E}.Release|x86.Build.0 = Release|Win32
+		{FC2F25CA-A405-4D38-A6A3-A4AD7D899F70}.Debug|x64.ActiveCfg = Debug|x64
+		{FC2F25CA-A405-4D38-A6A3-A4AD7D899F70}.Debug|x64.Build.0 = Debug|x64
+		{FC2F25CA-A405-4D38-A6A3-A4AD7D899F70}.Debug|x86.ActiveCfg = Debug|Win32
+		{FC2F25CA-A405-4D38-A6A3-A4AD7D899F70}.Debug|x86.Build.0 = Debug|Win32
+		{FC2F25CA-A405-4D38-A6A3-A4AD7D899F70}.Release|x64.ActiveCfg = Release|x64
+		{FC2F25CA-A405-4D38-A6A3-A4AD7D899F70}.Release|x64.Build.0 = Release|x64
+		{FC2F25CA-A405-4D38-A6A3-A4AD7D899F70}.Release|x86.ActiveCfg = Release|Win32
+		{FC2F25CA-A405-4D38-A6A3-A4AD7D899F70}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
