@@ -37,34 +37,40 @@ int main()
 
 		double aq, l;
 		std::cout << "Enter your choice to continue or press ctrl+Z to quit:" << std::endl;
-		std::cout << "Input a and l: " << std::endl;
-		std::cout << "\ta: ";
-		std::cin >> aq;
-		std::cout << "\tl: ";
-		std::cin >> l;
-		if (std::cin.good())
+		while (true)
 		{
-			try
+			std::cout << "Input a and l: " << std::endl;
+			std::cout << "\ta: ";
+			std::cin >> aq;
+			std::cout << "\tl: ";
+			std::cin >> l;
+			if (std::cin.good())
 			{
-				a.set_a(aq);
-			}
-			catch (std::exception &ex)
-			{
-				std::cout << ex.what() << std::endl;
-			}
+				try
+				{
+					a.set_a(aq);
+				}
+				catch (std::exception &ex)
+				{
+					std::cout << ex.what() << std::endl;
+					continue;
+				}
 
-			try
-			{
-				a.set_l(l);
+				try
+				{
+					a.set_l(l);
+				}
+				catch (std::exception &ex)
+				{
+					std::cout << ex.what() << std::endl;
+					continue;
+				}
+				break;
 			}
-			catch (std::exception &ex)
-			{
-				std::cout << ex.what() << std::endl;
-			}
-
+			else
+				fl1 = 0;
 		}
-		else
-			fl1 = 0;
+		
 
 		//system("pause");
 	}
