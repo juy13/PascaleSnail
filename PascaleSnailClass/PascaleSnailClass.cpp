@@ -70,13 +70,13 @@ void PascaleSnailClass::RadCurv(double & Ra, double & Rc, double & Ro) const
 double PascaleSnailClass::Sq() const
 {
 	double s = ((0.5 * pow(this->a, 2)) + pow(this->l, 2)) * M_PI;
-	if (this->l <= this->a)
+	if (this->l >= this->a)
 	{		
 		return s;
 	}
-	if (this->l > this->a)
+	if (this->l < this->a)
 	{
-		double fi1 = acos((- this->l) / this->a);
+		double fi1 = std::acos((float)((- this->l) / this->a));
 		double fi2 = acos(this->l / this->a);
 
 		double s1 = s * fi1 + ((3.0 / 2.0) * this->l * (sqrt(pow(this->a, 2) - pow(this->l, 2))));
@@ -90,18 +90,24 @@ double PascaleSnailClass::Rad2Cent(double fi) const
 {
 	if (fi < 0)
 		throw std::exception("illegal fi"); 
-	double ro = this->l - this->a * sin(fi);
+	double ro = this->l - this->a * sin(fi * 180.0 / M_PI);
 	return ro;
 }
 
 char* PascaleSnailClass::Eq() const
 {
 	char *formule;
+	std::string point = ".";
 	std::string eq;
 	std::string eq1 = "(x^2 + y^2 + ";
-	std::string eq2 = std::to_string(this->a);
+	//float a = this->a;
+	std::string eq2 = std::to_string(((float)this->a));
+	std::size_t pl = eq2.find(point);
+	eq2.erase(pl + 2, 4);
 	std::string eq3 = "*y)^2 = ";
-	std::string eq4 = std::to_string(pow(this->l, 2));
+	std::string eq4 = std::to_string(((float)pow(this->l, 2)));
+	std::size_t p2 = eq4.find(point);
+	eq4.erase(p2 + 2, 4);
 	std::string eq5 = "(x^2 + y^2)";
 	eq.append(eq1);
 	eq.append(eq2);
@@ -112,6 +118,7 @@ char* PascaleSnailClass::Eq() const
 	formule = new char[eq.length() + 1];
 	memcpy(formule, eq.c_str(), eq.length());
 	formule[eq.length()] = '\0';
+	//strcpy_s(formule, eq.c_str());
 
 	return formule;
 }

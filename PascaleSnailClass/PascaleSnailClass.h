@@ -19,7 +19,7 @@ private:
 
 
 public:
-	PascaleSnailClass(double a = 1, double l = 1);
+	PascaleSnailClass(double a = 2, double l = 3);
 	~PascaleSnailClass();
 
 	/* Setters */
