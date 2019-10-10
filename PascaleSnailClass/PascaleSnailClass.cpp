@@ -61,7 +61,7 @@ void PascaleSnailClass::RadCurv(double & Ra, double & Rc, double & Ro) const
 {
 	double ra = pow((this->a + this->l), 2) / (this->l + 2 * this->a);
 	double rc = pow((this->l - this->a), 2) / abs(this->l - 2 * this->a);
-	double ro = (this->l * sqrt(pow(this->l, 2) - pow(this->a, 2))) / (2.0 * a);
+	double ro = (this->l * sqrt(pow(this->l, 2) - pow(this->a, 2))) / (2.0 * this->a);
 	Ra = ra;
 	Rc = rc;
 	Ro = ro;
