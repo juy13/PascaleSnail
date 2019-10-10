@@ -34,7 +34,8 @@ int main()
 		std::cout << "The area of snail: " << a.Sq() << std::endl;
 		std::cout << "the equality: " << s << std::endl;
 		delete[] s;
-
+		std::cin.clear();
+		std::cin.ignore(32767, '\n');
 		double aq, l;
 		std::cout << "Enter your choice to continue or press ctrl+Z to quit:" << std::endl;
 		while (true)
@@ -42,8 +43,6 @@ int main()
 			std::cout << "Input a and l: " << std::endl;
 			std::cout << "\ta: ";
 			std::cin >> aq;
-			std::cout << "\tl: ";
-			std::cin >> l;
 			if (std::cin.good())
 			{
 				try
@@ -55,7 +54,15 @@ int main()
 					std::cout << ex.what() << std::endl;
 					continue;
 				}
-
+				std::cin.clear();
+				std::cin.ignore(32767, '\n');
+			}
+			else
+				fl1 = 0;
+			std::cout << "\tl: ";
+			std::cin >> l;
+			if (std::cin.good())
+			{
 				try
 				{
 					a.set_l(l);
@@ -65,6 +72,8 @@ int main()
 					std::cout << ex.what() << std::endl;
 					continue;
 				}
+				std::cin.clear();
+				std::cin.ignore(32767, '\n');
 				break;
 			}
 			else
