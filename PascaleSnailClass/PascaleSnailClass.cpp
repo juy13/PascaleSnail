@@ -1,7 +1,17 @@
 #define _USE_MATH_DEFINES 
 #include "PascaleSnailClass.h"
 #include <cmath>
+#include <cstdio>
+#include <cassert>
+#include <sstream>
 
+template<typename T>
+std::string toString(const T& value)
+{
+	std::ostringstream oss;
+	oss << value;
+	return oss.str();
+}
 
 PascaleSnailClass::PascaleSnailClass(double a, double l)
 {
@@ -100,12 +110,11 @@ char* PascaleSnailClass::Eq() const
 	std::string point = ".";
 	std::string eq;
 	std::string eq1 = "(x^2 + y^2 + ";
-	//float a = this->a;
-	std::string eq2 = std::to_string(((float)this->a));
+	std::string eq2 = toString((float)(this->a));
 	std::size_t pl = eq2.find(point);
 	eq2.erase(pl + 2, 4);
 	std::string eq3 = "*y)^2 = ";
-	std::string eq4 = std::to_string(((float)pow(this->l, 2)));
+	std::string eq4 = toString(((float)pow(this->l, 2)));
 	std::size_t p2 = eq4.find(point);
 	eq4.erase(p2 + 2, 4);
 	std::string eq5 = "(x^2 + y^2)";
@@ -118,7 +127,6 @@ char* PascaleSnailClass::Eq() const
 	formule = new char[eq.length() + 1];
 	memcpy(formule, eq.c_str(), eq.length());
 	formule[eq.length()] = '\0';
-	//strcpy_s(formule, eq.c_str());
 
 	return formule;
 }
