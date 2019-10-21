@@ -29,6 +29,11 @@ TEST(PSSeters, Set_RASet_C)
 	ASSERT_ANY_THROW(a3.set_a(0));
 }
 
+TEST(PSSeters2, Set_RASet_C)
+{
+	ASSERT_ANY_THROW(PascaleSnailClass a3(-1, 2));
+}
+
 TEST(PSGeters, Get_CAGet_R)
 {
 	PascaleSnailClass a3(2, 5.6);
@@ -38,20 +43,20 @@ TEST(PSGeters, Get_CAGet_R)
 
 TEST(PSDefault, AnotherFunc)
 {
-	PascaleSnailClass a3(2, 4);
+	PascaleSnailClass a3(7, 4);
 	const double err = 0.0001;
-	ASSERT_EQ(2, a3.get_a());
+	ASSERT_EQ(7, a3.get_a());
 	ASSERT_EQ(4, a3.get_l());
 	double ro;
 	double ra;
 	double rc;
 	a3.RadCurv(ra, rc, ro);
-	ASSERT_NEAR(9, ra, err);
-	ASSERT_NEAR(1, rc, err);
-	ASSERT_NEAR(3.4641, ro, err);
-	ASSERT_NEAR(2.50484, a3.Rad2Cent(60), err);
-	ASSERT_NEAR(56.5487, a3.Sq(), err);
-	ASSERT_STREQ("(x^2 + y^2 + 2.00*y)^2 = 16.00(x^2 + y^2)", a3.Eq());
+	ASSERT_NEAR(6.72222, ra, err);
+	ASSERT_NEAR(0.9000, rc, err);
+	ASSERT_NEAR(2.8722, ro, err);
+	ASSERT_NEAR(6.8684, a3.Rad2Cent(30), err);
+	ASSERT_NEAR(399.7189, a3.Sq(), err);
+	ASSERT_STREQ("(x^2 + y^2 + 7.00*y)^2 = 16.00(x^2 + y^2)", a3.Eq());
 }
 
 int main(int argc, char* argv[])

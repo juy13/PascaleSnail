@@ -4,9 +4,44 @@
 #include <iostream>
 #include "PascaleSnailClass.h"
 
+bool getNum(double& num)
+{
+	double n;
+	std::cin >> n;
+
+	bool g = std::cin.good();
+
+	if (g)
+		num = n;
+
+	return g;
+}
+
+void input_par(double &par)
+{
+	double a;
+	while (true)
+	{
+		bool fl = getNum(a);
+		if (fl == false)
+		{
+			std::cout << "Error, try again: ";
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			continue;
+		}
+		if (fl == true)
+		{
+			par = a;
+			break;
+		}
+	}
+}
+
 int main()
 {
-	PascaleSnailClass a(5, 9);
+
+	PascaleSnailClass a;
 	int fl1 = 1;
 	double fi = 0;
 	double ro = 0;
@@ -19,7 +54,7 @@ int main()
 		a.RadCurv(ra, rc, ro);
 		std::cout << "Radius of Curvature: " << std::endl << "Ra = " << ra << " Rc = " << rc << " Ro = " << ro << std::endl;
 		std::cout << "Input your fi in grad: ";
-		std::cin >> fi;
+		input_par(fi);
 		try
 		{
 			std::cout << "Radius in polar system: " << a.Rad2Cent(fi) << std::endl;
@@ -37,50 +72,34 @@ int main()
 		std::cin.clear();
 		std::cin.ignore(32767, '\n');
 		double aq, l;
-		std::cout << "Enter your choice to continue or press ctrl+Z to quit:" << std::endl;
+		std::cout << "Enter your choice to continue:" << std::endl;
 		while (true)
 		{
 			std::cout << "Input a and l: " << std::endl;
 			std::cout << "\ta: ";
-			std::cin >> aq;
-			if (std::cin.good())
+			input_par(aq);
+			try
 			{
-				try
-				{
-					a.set_a(aq);
-				}
-				catch (std::exception &ex)
-				{
-					std::cout << ex.what() << std::endl;
-					continue;
-				}
-				std::cin.clear();
-				std::cin.ignore(32767, '\n');
+				a.set_a(aq);
 			}
-			else
-				fl1 = 0;
+			catch (std::exception &ex)
+			{
+				std::cout << ex.what() << std::endl;
+				continue;
+			}
 			std::cout << "\tl: ";
-			std::cin >> l;
-			if (std::cin.good())
+			input_par(l);
+			try
 			{
-				try
-				{
-					a.set_l(l);
-				}
-				catch (std::exception &ex)
-				{
-					std::cout << ex.what() << std::endl;
-					continue;
-				}
-				std::cin.clear();
-				std::cin.ignore(32767, '\n');
-				break;
+				a.set_l(l);
 			}
-			else
-				fl1 = 0;
+			catch (std::exception &ex)
+			{
+				std::cout << ex.what() << std::endl;
+				continue;
+			}
+			break;
 		}
-		
-
 		//system("pause");
 	}
 }
